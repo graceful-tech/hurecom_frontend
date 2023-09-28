@@ -1,0 +1,110 @@
+<div *ngIf="spinnerFlag" class="h-spinner">
+  <p-progressSpinner
+    [style]="{ width: '50px', height: '50px' }"
+    strokeWidth="4"
+  ></p-progressSpinner>
+</div>
+<div *ngIf="!spinnerFlag">
+  <form [formGroup]="customerForm">
+    <div class="h-content">
+      <div class="grid">
+        <div class="col-6">
+          <div class="h-group">
+            <input
+              type="text"
+              pInputText
+              formControlName="companyName"
+              placeholder="Company Name *"
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="h-group">
+            <input
+              type="text"
+              pInputText
+              formControlName="customerName"
+              placeholder="Customer Name"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="col-6">
+          <div class="h-group">
+            <input
+              style="text-transform: none"
+              type="text"
+              pInputText
+              formControlName="email"
+              placeholder="Email *"
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="h-group">
+            <input
+              maxlength="10"
+              type="text"
+              pKeyFilter="pnum"
+              pInputText
+              formControlName="mobileNumber"
+              placeholder="Mobile Number *"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="col-6">
+          <div class="h-group">
+            <input
+              type="text"
+              pInputText
+              formControlName="altNumber"
+              placeholder="Alt Number"
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="h-group">
+            <input
+              type="text"
+              pInputText
+              formControlName="location"
+              placeholder="Location *"
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="h-group">
+            <p-dropdown
+              [options]="status"
+              formControlName="status"
+              optionLabel="displayValue"
+              optionValue="dataValue"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="h-footer">
+    <button
+    *ngIf="addFlag"
+    pButton
+    type="button"
+    [label]="dataLoadedFlag ? 'Add' : 'Adding..'"
+    [icon]="dataLoadedFlag ? 'pi pi-plus' : 'pi pi-spin pi-spinner'"
+    [disabled]="customerForm.invalid || !dataLoadedFlag || !validUserName"
+    (click)="createCustomer()"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+  ></button>
+    <button
+      *ngIf="addFlag"
+      style="margin-left: 10px"
+      class="p-button-secondary"
+      pButton
+      type="button"
+      label="Clear"
+    ></button>
+  </div>
+</div>

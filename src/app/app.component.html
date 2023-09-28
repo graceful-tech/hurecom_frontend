@@ -1,0 +1,17 @@
+<!-- <div>
+  <p-button label="No Response" routerLink="/companies/no-response"></p-button>
+  <p-button label="Contacted" routerLink="/companies/contacted"></p-button>
+  <p-button label="Interested" routerLink="/companies/interested"></p-button>
+</div>
+<router-outlet></router-outlet> -->
+
+<app-header></app-header>
+<div style="display: flex">
+  <div class="side-bar">
+    <app-side-bar></app-side-bar>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<p-toast position="bottom-center"></p-toast>
