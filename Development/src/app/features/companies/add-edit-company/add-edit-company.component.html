@@ -1,0 +1,114 @@
+<div class="wrapper py-4">
+    <form [formGroup]="companyForm">
+        <div class="form-heading"> Company Details
+        </div>
+        <div class="grid">
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="field-wrapper">
+                    <label class="required">Company Name</label>
+                    <div class="input-wrapper">
+                        <input 
+                        type="text" 
+                        pInputText 
+                        formControlName="companyName" />
+                    </div>
+                </div>
+                <small class="error-message" *ngIf="companyForm.controls['companyName'].invalid && showError">
+                    Company Name is required</small>
+            </div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="field-wrapper">
+                    <label class="required">Mobile Number</label>
+                    <div class="input-wrapper">
+                        <input 
+                        maxlength="10" 
+                        pKeyFilter="int"
+                        pInputText 
+                        formControlName="mobileNumber" />
+                    </div>
+                </div>
+                <small class="error-message" *ngIf="companyForm.controls['mobileNumber'].invalid && showError">
+                    Mobile Number is required</small>
+            </div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="field-wrapper">
+                    <label class="required">Email</label>
+                    <div class="input-wrapper">
+                        <input 
+                        type="text" 
+                        pInputText 
+                        formControlName="emailId" />
+                    </div>
+                </div>
+                <small class="error-message" *ngIf="companyForm.controls['emailId'].invalid && showError">
+                    Email is required</small>
+            </div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="field-wrapper">
+                    <label class="required">If any ATS used before?</label>
+                    <div class="input-wrapper">
+                        <p-dropdown 
+                        [options]="usedAtsList" 
+                        optionLabel="displayValue" 
+                        optionValue="dataValue"
+                         placeholder="Select option" 
+                         formControlName="usedAts">
+                        </p-dropdown>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="field-wrapper">
+                    <label class="required">If yes mention it</label>
+                    <div class="input-wrapper">
+                        <input type="text" pInputText formControlName="mentionAts" />
+                    </div>
+                </div>
+                <small class="error-message" *ngIf="companyForm.controls['mentionAts'].invalid && showError">
+                    Ats name is required</small>
+            </div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="field-wrapper">
+                    <label class="required">Branch</label>
+                    <div class="input-wrapper">
+                        <input type="text" pInputText formControlName="branch" />
+                    </div>
+                </div>
+                <small class="error-message" *ngIf="companyForm.controls['branch'].invalid && showError">
+                    Branch is required</small>
+            </div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="field-wrapper">
+                    <label class="required">Location</label>
+                    <div class="input-wrapper">
+                        <input type="text" pInputText formControlName="location" />
+                    </div>
+                </div>
+                <small class="error-message" *ngIf="companyForm.controls['location'].invalid && showError">
+                    Location is required</small>
+            </div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="field-wrapper">
+                    <label class="required">Years of Active</label>
+                    <div class="input-wrapper">
+                        <input pKeyFilter="int" [maxlength]="2" pInputText formControlName="yearsOfActive" />
+                    </div>
+                </div>
+                <small class="error-message" *ngIf="companyForm.controls['yearsOfActive'].invalid && showError">
+                    Years Of Active is required</small>
+            </div>
+        </div>
+        
+    <div class="button-wrapper">
+        <div class="col-md-12 flex-btn">
+          <p-button (click)="navigateToCompanies()" styleClass="p-button-secondary">
+            Cancel
+          </p-button>
+          <p-button  (click)="saveCompany()" styleClass="p-button-primary">Save</p-button>
+    
+        </div>
+      </div>
+
+    </form>
+    
+</div>
